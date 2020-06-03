@@ -1,0 +1,50 @@
+[
+	{
+		"name": "CasePaths",
+		"lineCoverage": 0.43209876543209874
+	},
+	{
+		"name": "Logger",
+		"lineCoverage": 0.7906976744186046
+	},
+	{
+		"name": "ComposableArchitecture",
+		"lineCoverage": 0.18688265507704466
+	},
+	{
+		"name": "Result",
+		"lineCoverage": 0
+	},
+	{
+		"name": "SnapshotTesting",
+		"lineCoverage": 0
+	},
+	{
+		"name": "Alamofire",
+		"lineCoverage": 0
+	},
+	{
+		"name": "CacheManager",
+		"lineCoverage": 0
+	},
+	{
+		"name": "ComposableCoreLocation",
+		"lineCoverage": 0.45045045045045046
+	},
+	{
+		"name": "PagesJaunes.app",
+		"lineCoverage": 0.49719276356830944
+	},
+	{
+		"name": "StargateKitRequest",
+		"lineCoverage": 0.02583068477318694
+	},
+	{
+		"name": "UnitTests.xctest",
+		"lineCoverage": 0.9758364312267658
+	},
+	{
+		"name": "StargateKitCore",
+		"lineCoverage": 0.008561643835616438
+	}
+]
