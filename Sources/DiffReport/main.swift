@@ -36,6 +36,13 @@ struct DiffReport: ParsableCommand {
     let lineCoverageOldValue : Double?
     let lineCoverageNewValue : Double?
   }
+  enum VarianceState {
+    case newValue
+    case deletedValue
+    case equal
+    case better
+    case worse
+  }
   
   func generateTable(_ base : [Coverage], _ new : [Coverage]) -> String {
     let baseDict = base.reduce(into: [String:Double]()) { $0[$1.name] = $1.lineCoverage }
@@ -66,6 +73,7 @@ struct DiffReport: ParsableCommand {
     }
     
     var responseContent = output.map { (line) -> String in
+      var bold = ""
       var state = "="
       if line.lineCoverageOldValue == nil {
         state = "NewValue"
@@ -77,8 +85,9 @@ struct DiffReport: ParsableCommand {
         state = "BetterThanBefore"
       } else if line.lineCoverageOldValue! > line.lineCoverageNewValue! {
         state = "WorseThanBefore"
+        bold = "**"
       }
-      return "| \(line.name) | \(line.lineCoverageOldValue.orEmpty) | \(line.lineCoverageNewValue.orEmpty) | \(state) |"
+      return "| \(bold)\(line.name)\(bold) | \(bold)\(line.lineCoverageOldValue.orEmpty)\(bold) | \(bold)\(line.lineCoverageNewValue.orEmpty)\(bold) | \(bold)\(state)\(bold) |"
     }
     let arrayTop = """
   | Target | PreviousValue | NewValue | Diff |
